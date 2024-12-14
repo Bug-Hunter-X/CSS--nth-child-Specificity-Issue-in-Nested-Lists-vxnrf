@@ -1,0 +1,24 @@
+The following CSS code snippet attempts to style a list using the `:nth-child` pseudo-class, but it contains an error in the selector causing unexpected behavior:
+
+```css
+li:nth-child(odd) { background-color: #f0f0f0; }
+li:nth-child(even) { background-color: #fff; }
+```
+
+The issue lies in the specificity of selectors.  When using `nth-child`, elements within nested lists will be counted cumulatively across all list items rather than their immediate parent's list items.
+
+Consider the following HTML:
+
+```html
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <ul>
+    <li>Nested Item 1</li>
+    <li>Nested Item 2</li>
+  </ul>
+  <li>Item 3</li>
+</ul>
+```
+
+With the CSS provided above, 'Nested Item 1' will be considered 'odd' (1st child overall), 'Nested Item 2' will be 'even' (2nd child overall), and the styles will be misapplied across all lists.
