@@ -1,0 +1,8 @@
+To resolve this issue, you need to add specificity to your selector using a parent selector, ensuring that `:nth-child` only applies to direct children of the `<ul>`:
+
+```css
+ul > li:nth-child(odd) { background-color: #f0f0f0; }
+ul > li:nth-child(even) { background-color: #fff; }
+```
+
+This corrected CSS uses `ul > li` to explicitly target only the direct list items of the `<ul>` element, preventing the cumulative counting and ensuring that the styling is applied correctly even with nested lists.
